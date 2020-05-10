@@ -1,0 +1,211 @@
+
+
+
+:root{
+    --dice-size:60px;
+    --dot-size:calc(var(--dice-size)/10);
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(6, 6, 31);
+    flex-direction: column;
+
+}
+.dice-container{
+    box-sizing: border-box;
+    width: var(--dice-size);
+    height: var(--dice-size);
+    perspective: 550px;
+    transform-style: preserve-3d;
+    transform:rotate3d(0.4, 0.9, 0.4, 200deg);
+    transform-origin:center;
+   
+}
+
+
+.face{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: inherit;
+    background: #ffffff;
+    border-radius: 10px;
+    
+}
+
+.front{
+    /* background: rgba(90,90,90,.7); */
+    transform: translateZ(calc(var(--dice-size)/2));
+
+}
+
+.back {
+    /* background: rgba(0,210,0,.7); */
+    transform: rotateY(180deg) translateZ(calc(var(--dice-size)/2));
+}
+
+.right {
+    /* background: rgba(210,0,0,.7); */
+    transform: rotateY(90deg) translateZ(calc(var(--dice-size)/2));
+}
+
+.left {
+    /* background: rgba(0,0,210,.7); */
+    transform: rotateY(-90deg) translateZ(calc(var(--dice-size)/2));
+}
+
+.top {
+    /* background: rgba(210,210,0,.7); */
+    transform: rotateX(90deg) translateZ(calc(var(--dice-size)/2));
+}
+
+.bottom {
+    /* background: rgba(210,0,210,.7); */
+    transform: rotateX(-90deg) translateZ(calc(var(--dice-size)/2));
+}
+
+
+.anime{
+transform:rotate3d(0.4, 0.9, 0.4, 200deg);
+animation: rotate 0.5s infinite forwards ease-in-out;
+
+}
+
+@keyframes rotate{
+    0%{transform: rotate3d(1, 1, 1, 0deg);}
+    10%{transform: rotate3d(1, 1, 1, 72deg);}
+    10%{transform: rotate3d(1, 1, 1, 72deg);}
+    20%{transform: rotate3d(1, 1, 1, 72deg);}
+    30%{transform: rotate3d(1, 1, 1, 108deg);}
+    40%{transform: rotate3d(1, 1, 1, 144deg);}
+    50%{transform: rotate3d(1, 1, 1, 180deg);}
+    60%{transform: rotate3d(1, 1, 1, 216deg);}
+    70%{transform: rotate3d(1, 1, 1, 252deg);}
+    80%{transform: rotate3d(1, 1, 1, 288deg);}
+    90%{transform: rotate3d(1, 1, 1, 324deg);}
+    100%{transform: rotate3d(1, 1, 1, 360deg);}
+    
+}
+
+
+.dice-container .face{
+
+    -webkit-box-shadow:inset 4px 3px 13px 0px rgba(148,145,148,1);
+    -moz-box-shadow: inset 4px 3px 13px 0px rgba(148,145,148,1);
+     box-shadow: inset 4px 3px 13px 0px rgba(148,145,148,1);
+}
+
+
+button{
+    margin-top: 5rem;
+}
+
+li{ 
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    /* display: grid;
+    grid-template-columns: repeat(2,1fr);
+    justify-content: center;
+    align-items: center; */
+    /* margin: 4px; */
+}
+
+ .dot{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    grid-template-areas: 
+                        "one two three"    /*To leave a grid cell empty use the .*/
+                        "four five six"
+                        "seven eight nine";
+                        
+    margin: 5px;
+ }
+
+ /*.dice-container > *:nth-child(even) .dot{
+       margin:7px;
+ }*/
+
+.dot > *{
+    height:calc(var(--dot-size) + 1px);
+    width:calc(var(--dot-size) + 1px);
+    background-color:black;
+    border-radius: 50%;
+    justify-self: center;
+    align-self: center;
+   
+}
+
+.dot-one span:nth-child(1){
+    grid-area: five;
+}
+.dot-two span:nth-child(1){
+    grid-area: three;
+}
+.dot-two span:nth-child(2){
+    grid-area: seven;
+}
+.dot-three span:nth-child(1){
+    grid-area: one;
+}
+.dot-three span:nth-child(2){
+    grid-area: five;
+}
+.dot-three span:nth-child(3){
+    grid-area: nine;
+}
+.dot-four span:nth-child(1){
+    grid-area: one;
+}
+.dot-four span:nth-child(2){
+    grid-area: three;
+}
+.dot-four span:nth-child(3){
+    grid-area: seven;
+}
+.dot-four span:nth-child(4){
+    grid-area: nine;
+}
+
+.dot-five span:nth-child(1){
+     grid-area: one;
+}
+.dot-five span:nth-child(2){
+      grid-area: three;
+}
+.dot-five span:nth-child(3){
+      grid-area: five;
+}
+.dot-five span:nth-child(4){
+     grid-area: seven;
+}
+.dot-five span:nth-child(5){
+     grid-area: nine;
+}
+
+.dot-six span:nth-child(1){
+    grid-area: one;
+}
+.dot-six span:nth-child(2){
+    grid-area: three;
+}
+.dot-six span:nth-child(3){
+    grid-area: four;
+}
+.dot-six span:nth-child(4){
+    grid-area: six;
+}
+.dot-six span:nth-child(5){
+    grid-area: seven;
+}
+.dot-six span:nth-child(6){
+    grid-area: nine;
+}
